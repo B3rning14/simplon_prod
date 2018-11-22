@@ -8,7 +8,7 @@
   <div class="acrylic">
     <div class="container">
       <fieldset>
-        <legend><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" /></legend>
+        <legend><img src="<?php echo get_theme_mod('simplon_prod_theme_custom_logo_setting',get_template_directory_uri().'/img/logo.png'); ?>" alt="logo" /></legend>
         <h1>- <?php bloginfo('name'); ?> -</h1>
         <h2><?php bloginfo('description'); ?></h2>
       </fieldset>

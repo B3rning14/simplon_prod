@@ -187,7 +187,7 @@ section#home fieldset
 section#home fieldset legend
 {
   padding: 0 15px;
-  width: 6vw;
+  width: 15vmin;
 }
 
 section#home fieldset legend img

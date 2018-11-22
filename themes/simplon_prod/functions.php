@@ -61,6 +61,14 @@
       ]
     );
 
+    $wp_customize->add_setting(
+      'simplon_prod_theme_custom_logo_setting',
+      [
+        'default'   => get_template_directory_uri().'/img/logo.png',
+        'transport'   => 'postMessage'
+      ]
+    );
+
     $wp_customize->add_control(
       new WP_Customize_Image_Control(
         $wp_customize,
@@ -69,7 +77,20 @@
           'settings'    => 'simplon_prod_theme_custom_background_image_setting',
           'section'   => 'simplon_prod_theme_custom',
           'label'     => 'Home Background Image',
-          'description' => 'Add custom background image to home page'
+          'description' => 'Add custom background image to homepage'
+        ]
+      )
+    );
+
+    $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+        $wp_customize,
+        'simplon_prod_theme_custom_logo_control',
+        [
+          'settings'    => 'simplon_prod_theme_custom_logo_setting',
+          'section'   => 'simplon_prod_theme_custom',
+          'label'     => 'Home Logo',
+          'description' => 'Add custom logo to homepage'
         ]
       )
     );
@@ -82,7 +103,7 @@
    */
   function theme_nav_register()
   {
-    register_nav_menu('header-menu',__( 'Menu Principal', 'Primary Menu'));
+    register_nav_menu('header-menu',__('Menu Principal', 'Primary Menu'));
   }
 
   /**
@@ -106,6 +127,17 @@
     {
       echo '<a href="'.get_home_url().'"><i class="fa fa-arrow-left"></i></a>';
     }
+  }
+
+  /**
+   * theme_header_metadata
+   * Add additional metadata in head
+   */
+  function theme_header_metadata()
+  {
+    ?>
+    <meta name="theme-color" content="#ED0036" />
+    <?php
   }
 
   /**
@@ -289,6 +321,7 @@
 
   // -- HOOKS
   add_action('init','theme_scripts');
+  add_action('wp_head','theme_header_metadata');
   add_action('wp_enqueue_scripts','theme_styles');
   add_action('get_header','remove_admin_login_header');
   add_action('customize_register','theme_customize');
