@@ -1,0 +1,514 @@
+/*
+Theme Name: Simplon Prod Wordpress Theme
+Author: Leroy Kévin
+Author URI: http://www.b3rning14.fr/
+Description: An one-page theme for an awesome company.
+Version: 1.0
+*/
+
+*, *::after, *::before
+{
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  border: 0 none; 
+  font: inherit; 
+  vertical-align: baseline; 
+}
+
+a
+{
+  color:#ED0036;
+}
+
+a:focus
+{
+  outline: none; 
+}
+
+hr
+{
+  margin:5px 0; 
+}
+
+html
+{
+  font-family: Montserrat,'Open Sans',helvetica,arial,sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x:hidden;
+  margin-top:0 !important;
+  background-color:#000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 
+{
+  font-weight:700;
+  margin: 0 0 25px;
+  line-height: 1.3;
+}
+
+table
+{
+  border-collapse:collapse; 
+}
+
+strong
+{
+  font-weight: 700;
+}
+
+/*--------------------*/
+/*     NAVIGATION     */
+/*--------------------*/
+
+nav[role="navigation"] .menu-wrapper
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100vh;
+  background: #000;
+  z-index: 3;
+  padding: 60px 15px;
+  transition: .3s;
+  color:#FFF;
+  text-align: center;
+}
+
+nav[role="navigation"][data-visible="0"] .menu-wrapper
+{
+  left:-350px;
+}
+
+nav[role="navigation"][data-visible="1"] + main
+{
+  transform: translateX(350px);
+}
+
+nav[role="navigation"] ul
+{
+  list-style-type: none;
+  display:flex;
+  flex-flow:column nowrap;
+  justify-content: space-around;
+  height: calc(100vh - 120px);
+}
+
+nav[role="navigation"] ul li a
+{
+  font-size:30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s;
+}
+
+nav[role="navigation"] ul li a:hover
+{
+  font-size:25px;
+}
+
+nav[role="navigation"] i.fa-bars,
+nav[role="navigation"] i.fa-window-close,
+nav[role="navigation"] i.fa-times,
+nav[role="navigation"] i.fa-arrow-left
+{
+  position: fixed;
+  top:5px;
+  left:5px;
+  font-size:40px;
+  z-index: 4;
+}
+
+nav[role="navigation"][data-visible="1"] ul li
+{
+  animation: slideInLeft .4s .2s backwards;
+}
+
+nav[role="navigation"][data-visible="1"] ul li:nth-of-type(2)
+{
+  animation-delay: .3s;
+}
+
+nav[role="navigation"][data-visible="1"] ul li:nth-of-type(3)
+{
+  animation-delay: .4s;
+}
+
+nav[role="navigation"][data-visible="1"] ul li:nth-of-type(4)
+{
+  animation-delay: .5s;
+}
+
+nav[role="navigation"][data-visible="1"] ul li:nth-of-type(5)
+{
+  animation-delay: .6s;
+}
+
+/*--------------------*/
+/*        MAIN        */
+/*--------------------*/
+
+main
+{
+  transition: transform .5s;
+  background-color:#FFF;
+}
+
+section
+{
+  text-align: center;
+  background-size: cover !important;
+}
+
+section#home
+{
+  position: relative;
+  width:100vw;
+  height:100vh;
+  color: #C30044;
+}
+
+section#home fieldset
+{
+  border: 2px solid #ED0036;
+  border-radius: 2px;
+  padding: 0 15px;
+}
+
+section#home fieldset legend
+{
+  padding: 0 15px;
+  width: 6vw;
+}
+
+section#home fieldset legend img
+{
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border-radius: 50%;
+}
+
+section#home h1,
+section#home h2
+{
+  text-shadow: 2px 2px 2px rgba(0,0,0,.4);
+}
+
+section#home h1
+{
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+section#home h2
+{
+  font-size: 19px;
+}
+
+section#home i
+{
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size:60px;
+}
+
+section#home .acrylic
+{
+  width: 100vw;
+  height: 100vh;
+  background:url('img/acrylic.png');
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  transition: background .5s;
+}
+
+section#home .container
+{
+  padding:10px;
+}
+
+section:not(#home) 
+{
+  padding: 50px;
+  line-height: 2;
+}
+
+section:not(#home) h2
+{
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+footer
+{
+  width: 100vw;
+  background: #000;
+  color: #FFF;
+  padding: 5px 15px;
+  vertical-align: middle;
+}
+
+footer .info
+{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 15px;
+}
+
+/*---------------------*/
+/*        INPUTS       */
+/*---------------------*/
+
+input[type=text], textarea
+{
+  width: 100%;
+  margin-bottom: 20px;
+  border: none;
+  border: 1px solid #CCC;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+input[type=text]:focus, textarea:focus, button:focus
+{
+  outline-color: #ED0036;
+}
+
+textarea
+{
+  resize:none;
+}
+
+button
+{
+  width: 100%;
+  border-radius: 2px;
+  padding:5px 0;
+  background-color: #ED0036;
+  color: #fff;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/*---------------------*/
+/*    MISCELLANEOUS    */
+/*---------------------*/
+
+.slideshow
+{
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  border: 3px solid #C30044;
+  border-radius: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+  background:#333;
+}
+
+.slideshow nav
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index:3;
+}
+
+.slideshow nav a
+{
+  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.slideshow nav a.left
+{
+  top: 0;
+  left: 0;
+}
+
+.slideshow nav a.right
+{
+  top: 0;
+  right: 0;
+}
+
+.slideshow nav ul
+{
+  position: absolute;
+  top:5px;
+  left:50%;
+  list-style-type: none;
+  background: rgba(0,0,0,.5);
+  transform: translateX(-50%);
+}
+
+.slideshow nav li
+{
+  margin: 0 5px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #C30044;
+  cursor: pointer;
+}
+
+.slideshow nav li.active
+{
+  background:#C30044;
+}
+
+.slideshow .slideshow-images
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow .slideshow-images img
+{
+  width: 100%;
+  height: 100%;
+  display:none;
+  opacity:0;
+}
+
+.slideshow .slideshow-images img.active
+{
+  display:inline-block;
+  opacity: 1;
+  animation: slideInLeft .4s .2s backwards;
+}
+
+.row
+{
+  display: flex;
+  flex-flow: row wrap;
+  margin: .5em;
+}
+
+.row:last-child
+{
+  margin-bottom: 0;
+}
+
+[class*="col-"]
+{
+  padding: 10px;
+  width: 100%;
+}
+
+/*---------------------*/
+/*     ANIMATIONS      */
+/*---------------------*/
+
+@keyframes slideInLeft
+{
+  
+  0%
+  {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  100%
+  {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+/*-------------------*/
+/*   MEDIA QUERIES   */
+/*-------------------*/
+
+@media only screen and (min-width: 768px)
+{
+
+  .col-1-2
+  { 
+    width: 50%; 
+  }
+
+  .col-1-3
+  { 
+    width: 33.33%;
+  }
+  
+  .col-1-4
+  {
+    width: 25%;
+  }
+
+  .col-2-3
+  { 
+    width: 66.66%;
+  }
+
+  .col-3-4
+  { 
+    width: 75%;
+  }
+
+  section#home h1
+  {
+    font-size:28px;
+    margin-bottom: 15px
+  }
+
+  section#home h2
+  {
+    font-size:23px
+  }
+
+  section:not(#home) h2
+  {
+    font-size:44px
+  }
+}
+
+@media only screen and (min-width: 992px)
+{
+  section#home h1
+  {
+    font-size:32px
+  }
+
+  section#home h2
+  {
+    font-size:27px
+  }
+}
+
+@media only screen and (min-width: 1200px)
+{
+  section#home h1
+  {
+    font-size:40px;
+  }
+
+  section#home h2
+  {
+    font-size:31px
+  }
+}
